@@ -130,7 +130,7 @@ ostream& operator<<(ostream& os, Matrix& m){
 bool operator==(const Matrix& lhs, const Matrix& rhs){
     double tolerance = 0.05;
 
-    if((lhs.r).equals(rhs.r) && (lhs.c).equals(rhs.c)) {
+    if(lhs.r == rhs.r && lhs.c == rhs.c) {
         for(int i = 0; i < lhs.r; i++) {
             for (int j = 0; j < lhs.c; j++) {
                 double difference = abs(lhs.matrix[i][j] - rhs.matrix[i][j]);
@@ -205,7 +205,7 @@ Matrix& Matrix::operator=(Matrix m){
 
 /*Overloaded addition assignment operator.*/
 Matrix& Matrix::operator+=(const Matrix& rhs){
-    if((this->r).equals(rhs.r) && (this->c).equals(rhs.c)) {
+    if(this->r == rhs.r && this->c == rhs.c) {
         for(int i = 0; i < this->r; i++) {
             for (int j = 0; j < this->c; j++) {
                 this->matrix[i][j] += rhs.matrix[i][j];
@@ -225,7 +225,7 @@ Matrix operator+(Matrix lhs, const Matrix& rhs) {
 
 /*Overloaded subtraction assignment operator.*/
 Matrix& Matrix::operator-=(const Matrix& rhs){
-    if((this->r).equals(rhs.r) && (this->c).equals(rhs.c)) {
+    if(this->r == rhs.r && this->c == rhs.c) {
         for(int i = 0; i < this->r; i++) {
             for (int j = 0; j < this->c; j++) {
                 this->matrix[i][j] -= rhs.matrix[i][j];
@@ -246,7 +246,7 @@ Matrix operator-(Matrix lhs, const Matrix& rhs){
 
 /*Overloaded multiplication assignment operator.*/
 Matrix& Matrix::operator*=(const Matrix& rhs){
-    if((this->c).equals(rhs.r)) {
+    if(this->c == rhs.r) {
         Matrix tmp(this->r, rhs.c);
         for(int i = 0; i < this->r; i++) {
             for (int j = 0; j < rhs.c; j++) {
