@@ -6,36 +6,40 @@
 #include <iostream>
 using namespace std;
 
-//Declaring class Matrix.
-class Matrix {
+//Declaring class matrix.
+class matrix {
 protected:
     int r;
     int c;
     int size;
-    double** matrix;
+    double** my_matrix;
 public:
-    Matrix();
-    explicit Matrix(int n);
-    Matrix(int r, int c);
-    explicit Matrix(double array[]);
+    matrix();
+    explicit matrix(int n);
+    matrix(int r, int c);
+    explicit matrix(double array[], int n);
     void set_value(int r, int c, double value)const;
     double get_value(int r, int c)const;
     void clear();
-    Matrix(const Matrix& m); //Needed for swapping
-    ~Matrix();
-    friend ostream& operator<<(ostream& os, Matrix& m);
-    friend bool operator==(const Matrix& lhs, const Matrix& rhs);
-    friend bool operator!=(const Matrix& lhs, const Matrix& rhs);
-    Matrix& operator++();
-    const Matrix operator++(int);
-    Matrix& operator--();
-    const Matrix operator--(int);
-    friend void swap(Matrix& first, Matrix& second); //Needed for the assignment operator
-    Matrix& operator=(Matrix m); //Uses the copy and swap idiom
-    Matrix& operator+=(const Matrix& rhs);
-    friend Matrix operator+(Matrix lhs, const Matrix& rhs);
-    Matrix& operator-=(const Matrix& rhs);
-    friend Matrix operator-(Matrix lhs, const Matrix& rhs);
-    Matrix& operator*=(const Matrix& rhs);
-    friend Matrix operator*(Matrix lhs, const Matrix& rhs);
+    matrix(const matrix& m); //Needed for swapping
+    ~matrix();
+    friend ostream& operator<<(ostream& os, matrix& m);
+    friend bool operator==(const matrix& lhs, const matrix& rhs);
+    friend bool operator!=(const matrix& lhs, const matrix& rhs);
+    matrix& operator++();
+    const matrix operator++(int);
+    matrix& operator--();
+    const matrix operator--(int);
+    friend void swap(matrix& first, matrix& second); //Needed for the assignment operator
+    matrix& operator=(matrix m); //Uses the copy and swap idiom
+    matrix& operator+=(const matrix& rhs);
+    friend matrix operator+(matrix lhs, const matrix& rhs);
+    matrix& operator-=(const matrix& rhs);
+    friend matrix operator-(matrix lhs, const matrix& rhs);
+    matrix& operator*=(const matrix& rhs);
+    friend matrix operator*(matrix lhs, const matrix& rhs);
+    int get_r();
+    int get_c();
+    int get_size();
+    double** get_my_matrix();
 };
