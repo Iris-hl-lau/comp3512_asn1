@@ -19,7 +19,7 @@ matrix::matrix() {
 /*Constructor of matrix that creates a matrix of n rows and n columns.*/
 matrix::matrix(int n) {
     if(n <= 0) {
-        throw "Parameters cannot be zero or negative.";
+        throw invalid_argument("Parameters cannot be zero or negative.");
     }
     r = n;
     c = n;
@@ -32,7 +32,7 @@ matrix::matrix(int n) {
 /*Constructor of matrix that creates a matrix of r rows and c columns.*/
 matrix::matrix(int r, int c) {
     if(r <= 0 || c <= 0) {
-        throw "Parameters cannot be zero or negative.";
+        throw invalid_argument("Parameters cannot be zero or negative.");
     }
     this->r = r;
     this->c = c;
@@ -47,7 +47,7 @@ matrix::matrix(int r, int c) {
 matrix::matrix(double array[], int n) {
     int array_sqrt = (int)sqrt(n);
     if(n != array_sqrt * array_sqrt){
-        throw "Array size is not a perfect square.";
+        throw invalid_argument("Array size is not a perfect square.");
     }
 
     int index = 0;
@@ -67,7 +67,7 @@ matrix::matrix(double array[], int n) {
 /*Sets the value in row r and column c of a matrix.*/
 void matrix::set_value(int r, int c, double value)const{
     if(r >= this->r || c >= this->c) {
-        throw "Index must not be negative or out of bounds.";
+        throw invalid_argument("Index must not be negative or out of bounds.");
     }
     my_matrix[r][c] = value;
 }
@@ -75,7 +75,7 @@ void matrix::set_value(int r, int c, double value)const{
 /*Gets the value in row r and column c of a matrix.*/
 double matrix::get_value(int r, int c)const{
     if(r >= this->r || c >= this->c) {
-        throw "Index must not be negative or out of bounds.";
+        throw invalid_argument("Index must not be negative or out of bounds.");
     }
     return my_matrix[r][c];
 }
@@ -203,7 +203,7 @@ matrix& matrix::operator+=(const matrix& rhs){
             }
         }
     } else {
-        throw "Matrices must have the same number of rows and columns.";
+        throw invalid_argument("Matrices must have the same number of rows and columns.");
     }
     return *this;
 }
@@ -223,7 +223,7 @@ matrix& matrix::operator-=(const matrix& rhs){
             }
         }
     } else {
-        throw "Matrices must have the same number of rows and columns.";
+        throw invalid_argument("Matrices must have the same number of rows and columns.");
     }
     return *this;
 }
@@ -248,8 +248,8 @@ matrix& matrix::operator*=(const matrix& rhs){
         }
         this->my_matrix = tmp.my_matrix;
     } else {
-        throw "Number of columns in the first matrix must "
-              "match the number of columns of the second matrix.";
+        throw invalid_argument("Number of columns in the first matrix must "
+              "match the number of columns of the second matrix.");
     }
     return *this;
 }
