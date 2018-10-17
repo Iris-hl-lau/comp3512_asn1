@@ -1,6 +1,6 @@
 Iris Lau
 A01022923
 
-50% complete.
-Finished: matrix.cpp and matrix.hpp.
-Not finished: design.pdf, Google PageRank, connectivity.txt.
+80% complete.
+Finished: matrix.cpp, matrix.hpp, Google PageRank, connectivity.txt.
+Not finished: design.pdf, exceptions. 
