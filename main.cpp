@@ -13,7 +13,7 @@ int main() {
         double teleport = 1 - p;
         matrix temp;
 
-        //Read connectivity.txt into an array of doubles.
+        //Read connectivity.txt.txt into an array of doubles.
         if (read_file.is_open()) {
             while (!read_file.eof()) {
                 read_file >> num;
