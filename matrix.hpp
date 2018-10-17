@@ -40,6 +40,4 @@ public:
     friend matrix operator*(matrix lhs, const matrix& rhs);
     int get_r();
     int get_c();
-    int get_size();
-    double** get_my_matrix();
 };

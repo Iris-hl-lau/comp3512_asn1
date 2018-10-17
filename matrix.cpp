@@ -13,7 +13,7 @@ matrix::matrix() {
     c = 0;
     my_matrix = new double*[r];
     my_matrix[0] = new double[c];
-    my_matrix[0][0] = 0.0;
+    clear();
 }
 
 /*Constructor of matrix that creates a matrix of n rows and n columns.*/
@@ -26,11 +26,7 @@ matrix::matrix(int n) {
     size = 1;
     my_matrix = new double*[r];
     my_matrix[0] = new double[c];
-    for(int i = 0; i < r; i++) {
-        for (int j = 0; j < c; j++) {
-            my_matrix[i][j] = 0.0;
-        }
-    }
+    clear();
 }
 
 /*Constructor of matrix that creates a matrix of r rows and c columns.*/
@@ -43,11 +39,7 @@ matrix::matrix(int r, int c) {
     size = r * c;
     my_matrix = new double*[this->r];
     my_matrix[0] = new double[this->c];
-    for(int i = 0; i < this->r; i++) {
-        for (int j = 0; j < this->c; j++) {
-            my_matrix[i][j] = 0.0;
-        }
-    }
+    clear();
 }
 
 /*Constructor of matrix that takes an 1D array; if the number of elements is a perfect
@@ -277,14 +269,4 @@ int matrix::get_r() {
 /*Accessor for columns.*/
 int matrix::get_c() {
     return c;
-}
-
-/*Accessor for size.*/
-int matrix::get_size() {
-    return size;
-}
-
-/*Accessor for matrix.*/
-double** matrix::get_my_matrix() {
-    return  my_matrix;
 }
